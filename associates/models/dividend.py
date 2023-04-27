@@ -21,13 +21,14 @@ class dividend(models.Model):
         ('paid', 'Paid'),
         ], string='Status', readonly=True, default='draft')
 
-    @api.model
+    @api.model_create_multi
 
-    def create(self, vals):
-        if vals.get('sequence', _('New')) == _('New'):
-            vals['sequence'] = self.env['ir.sequence'].next_by_code('associates.dividend.sequence') or _('New')
-        result = super(dividend, self).create(vals)
-        return result
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get('sequence', _('New')) == _('New'):
+                vals['sequence'] = self.env['ir.sequence'].next_by_code('associates.dividend.sequence') or _('New')
+            result = super(dividend, self).create(vals)
+            return result
     
     def name_get(self):
         result = []

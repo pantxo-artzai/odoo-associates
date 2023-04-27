@@ -14,14 +14,15 @@ class Share(models.Model):
     subscription_date = fields.Date(string='Subscription Date')
     share_type_id = fields.Many2one(string="Share Type", related="associate_id.share_type_id", readonly=True, store=True)
 
-    @api.model
+    @api.model_create_multi
 
-    def create(self, vals):
-        if vals.get('sequence', _('New')) == _('New'):
-            vals['sequence'] = self.env['ir.sequence'].next_by_code('associates.share.sequence') or _('New')
-        result = super(Share, self).create(vals)
-        return result
-    
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get('sequence', _('New')) == _('New'):
+                vals['sequence'] = self.env['ir.sequence'].next_by_code('associates.share.sequence') or _('New')
+            result = super(Share, self).create(vals)
+            return result
+        
     def name_get(self):
         result = []
         for record in self:

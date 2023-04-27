@@ -20,7 +20,7 @@ class Associate(models.Model):
     notes = fields.Text(string='Notes')
 
     shares_amount = fields.Float(string="Shares total amount", compute="_compute_shares_amount", store=True)
-    share_count = fields.Integer(string='Shares', compute='_compute_share_count',store=True, tracking=1)
+    share_count = fields.Integer(string='Nb Shares', compute='_compute_share_count',store=True, tracking=1)
     share_numbers = fields.Integer(string='Shares numbers', compute='_compute_share_count',store=True, tracking=1)
     share_percentage = fields.Float(string="Share percentage", compute="_compute_share_percentage", store=True, tracking=1)
     share_numbers = fields.Integer(string='Shares numbers', compute='_compute_share_count',store=True, tracking=1)
@@ -72,21 +72,21 @@ class Associate(models.Model):
             else:
                 record.bare_ownership_id = False
 
-    @api.model
-    def create(self, vals):
+    @api.model_create_multi
+    def create(self, vals_list):
         # Update the name based on the partner_id
-        name = self.env['res.partner'].browse(vals['partner_id']).name
-        vals.update({'name': name})
+        for vals in vals_list:
+            name = self.env['res.partner'].browse(vals['partner_id']).name
+            vals.update({'name': name})
+            record = super(Associate, self).create(vals)
 
-        record = super(Associate, self).create(vals)
+            # Update the bare_ownership_id for the associated records
+            if 'usufructuary_ids' in vals:
+                for associate_id in vals['usufructuary_ids'][0][2]:
+                    associate = self.env['associates.associate'].browse(associate_id)
+                    associate.bare_ownership_id = record.id
 
-        # Update the bare_ownership_id for the associated records
-        if 'usufructuary_ids' in vals:
-            for associate_id in vals['usufructuary_ids'][0][2]:
-                associate = self.env['associates.associate'].browse(associate_id)
-                associate.bare_ownership_id = record.id
-
-        return record
+            return record
 
     def write(self, vals):
         # Store the current values of usufructuary_ids for each record

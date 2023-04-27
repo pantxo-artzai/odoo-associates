@@ -1,7 +1,8 @@
 from odoo import api, fields, models
 
 class CreateSharesWizard(models.TransientModel):
-    _name = "associates.create_shares_wizard"
+    _name = 'associates.create_shares_wizard'
+    _description = 'Create shares wizard'
 
     associate_id = fields.Many2one("associates.associate", string="Associate")
     share_type_id = fields.Many2one("associates.share.type", string="Share type", related="associate_id.share_type_id")
