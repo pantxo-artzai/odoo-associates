@@ -15,6 +15,7 @@
     'version': '0.1',
     'depends': ['base', 'mail'],
     'data': [
+        'data/actions.xml',
         'security/ir.model.access.csv',
         'views/menu.xml',
         'views/view_legal_form_view.xml',
@@ -31,7 +32,6 @@
         'report/report_associate_list_qweb.xml',
         'report/report_view.xml',
         'data/data.xml',
-        'data/actions.xml',
     ],
     'demo': [
         'demo/demo.xml',
