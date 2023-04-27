@@ -13,6 +13,7 @@
     'website': "",
     'category': 'Human Resources',
     'version': '0.1',
+    'license': 'GPL-3',
     'depends': ['base', 'mail'],
     'data': [
         'data/actions.xml',

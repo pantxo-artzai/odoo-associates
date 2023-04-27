@@ -4,6 +4,7 @@
         <!-- Menu principal -->
         <record id="menu_associates_management" model="ir.ui.menu">
             <field name="name">Associates</field>
+            <field name="web_icon" eval="'associates,static/description/icon.png'"/>
         </record>
 
         <!-- /// Dashboard /// -->
