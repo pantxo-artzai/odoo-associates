@@ -46,8 +46,8 @@ class ShareType(models.Model):
     _name = 'associates.share.type'
     _description = 'Share Type'
 
-    name = fields.Char(string='Name', required=True)
-    description = fields.Text(string='Description')
+    name = fields.Char(string='Name', required=True, translate=True)
+    description = fields.Text(string='Description', translate=True)
     country_id = fields.Many2one(comodel_name='res.country', string='Country')
     dividend_fixed = fields.Boolean(string="Fixed dividend")
     dividend_priority = fields.Boolean(string="Priority dividends")

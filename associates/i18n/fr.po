@@ -1,11 +1,15 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: asscoiates\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: POEditor.com\n"
-"Project-Id-Version: asscoiates\n"
-"Language: fr\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #. module: associates
 #: model:ir.actions.report,print_report_name:associates.associate_list
@@ -105,8 +109,12 @@ msgstr "Titre du bouton"
 
 #. module: associates
 #: model_terms:ir.ui.view,arch_db:associates.view_update_percentage_wizard_form
-msgid "By clicking the Update button, you will update the share percentage held by each associate."
-msgstr "En cliquant sur le bouton Mettre à jour, vous mettrez à jour le pourcentage de partage détenu par chaque associé."
+msgid ""
+"By clicking the Update button, you will update the share percentage held by "
+"each associate."
+msgstr ""
+"En cliquant sur le bouton Mettre à jour, vous mettrez à jour le pourcentage "
+"de partage détenu par chaque associé."
 
 #. module: associates
 #: model_terms:ir.ui.view,arch_db:associates.distribute_dividends_wizard_view
@@ -255,6 +263,7 @@ msgstr "Afficher un nom"
 
 #. module: associates
 #: model_terms:ir.ui.view,arch_db:associates.distribute_dividends_wizard_view
+#: model:associates.dashboard,button_title:associates.associates_dashboard_2
 msgid "Distribute"
 msgstr "Distribuer"
 
@@ -279,6 +288,8 @@ msgstr "Nombre de dividendes"
 #: model:ir.model.fields,field_description:associates.field_associates_associate__dividend_ids
 #: model:ir.ui.menu,name:associates.menu_dividends
 #: model_terms:ir.ui.view,arch_db:associates.view_associate_form
+#: model:associates.dashboard,name:associates.associates_dashboard_2
+#: model:associates.dashboard,card_title:associates.associates_dashboard_2
 msgid "Dividends"
 msgstr "Dividendes"
 
@@ -357,14 +368,17 @@ msgstr "ID"
 #: model:ir.model.fields,help:associates.field_associates_dividend__message_needaction
 #: model:ir.model.fields,help:associates.field_associates_share__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "Si cette case est cochée, de nouveaux messages nécessitent votre attention."
+msgstr ""
+"Si cette case est cochée, de nouveaux messages nécessitent votre attention."
 
 #. module: associates
 #: model:ir.model.fields,help:associates.field_associates_associate__message_has_error
 #: model:ir.model.fields,help:associates.field_associates_dividend__message_has_error
 #: model:ir.model.fields,help:associates.field_associates_share__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Si cette case est cochée, certains messages présentent une erreur de livraison."
+msgstr ""
+"Si cette case est cochée, certains messages présentent une erreur de "
+"livraison."
 
 #. module: associates
 #: model_terms:ir.ui.view,arch_db:associates.view_associate_form
@@ -462,7 +476,7 @@ msgstr "Erreur de livraison du message"
 #: model:ir.model.fields,field_description:associates.field_associates_dividend__message_ids
 #: model:ir.model.fields,field_description:associates.field_associates_share__message_ids
 msgid "Messages"
-msgstr "messages"
+msgstr "Messages"
 
 #. module: associates
 #: model:ir.model.fields,field_description:associates.field_associates_associate__name
@@ -485,12 +499,6 @@ msgstr "Nb de parts"
 #. module: associates
 #. odoo-python
 #: code:addons/associates/models/dividend.py:0
-#: code:addons/associates/models/dividend.py:0
-#: code:addons/associates/models/dividend.py:0
-#: code:addons/associates/models/dividend.py:0
-#: code:addons/associates/models/share.py:0
-#: code:addons/associates/models/share.py:0
-#: code:addons/associates/models/share.py:0
 #: code:addons/associates/models/share.py:0
 #: model:ir.model.fields.selection,name:associates.selection__associates_associate__state__new
 #: model_terms:ir.ui.view,arch_db:associates.view_associate_form
@@ -642,6 +650,8 @@ msgstr "Type de part"
 #: model:ir.model.fields,field_description:associates.field_associates_associate__share_ids
 #: model:ir.ui.menu,name:associates.menu_shares
 #: model_terms:ir.ui.view,arch_db:associates.view_associate_form
+#: model:associates.dashboard,name:associates.associates_dashboard_1
+#: model:associates.dashboard,card_title:associates.associates_dashboard_1
 msgid "Shares"
 msgstr "Parts"
 
@@ -724,8 +734,9 @@ msgstr "Assistant de mise à jour associé pour le transfert de partage"
 #. module: associates
 #: model_terms:ir.ui.view,arch_db:associates.view_update_associate_wizard_form
 #: model_terms:ir.ui.view,arch_db:associates.view_update_percentage_wizard_form
+#: model:associates.dashboard,button_title:associates.associates_dashboard_3
 msgid "Update"
-msgstr "Mise à jour"
+msgstr "Mettre à jour"
 
 #. module: associates
 #: model_terms:ir.ui.view,arch_db:associates.view_update_associate_wizard_form
@@ -786,17 +797,17 @@ msgstr "Référence"
 #. module: associates
 #: model:ir.model.fields,field_description:associates.field_associates_dividend__number
 msgid "dividend Number"
-msgstr "Nombre de dividendes"
+msgstr "nombre de dividendes"
 
 #. module: associates
 #: model:ir.model.fields,field_description:associates.field_associates_dividend__sequence
 msgid "dividend Reference"
-msgstr "Référence"
+msgstr "référence"
 
 #. module: associates
 #: model:ir.model.fields,field_description:associates.field_associates_dividend__value
 msgid "dividend Value"
-msgstr "Valeur du dividende"
+msgstr "valeur du dividende"
 
 #. module: associates
 #: model:ir.model.fields,field_description:associates.field_associates_associate__state_id
@@ -811,10 +822,201 @@ msgstr "rue"
 #. module: associates
 #: model:ir.model.fields,field_description:associates.field_associates_associate__street2
 msgid "street2"
-msgstr "Rue 2"
+msgstr "rue 2"
 
 #. module: associates
 #: model:ir.model.fields,field_description:associates.field_associates_associate__zip
 msgid "zip"
-msgstr "Code postale"
+msgstr "code postale"
 
+#. module: associates
+#: model:associates.dashboard,card_description:associates.associates_dashboard_1
+msgid "Create shares and assign them to a shareholder."
+msgstr "Créez des actions et attribuez-les à un actionnaire."
+
+#. module: associates
+#: model:associates.dashboard,button_title:associates.associates_dashboard_1
+msgid "Create shares"
+msgstr "Créer des actions"
+
+#. module: associates
+#: model:associates.dashboard,card_description:associates.associates_dashboard_2
+msgid "Distribute dividends to your shareholders."
+msgstr "Distribuez des dividendes à vos actionnaires."
+
+#. module: associates
+#: model:associates.dashboard,name:associates.associates_dashboard_3
+#: model:associates.dashboard,card_title:associates.associates_dashboard_3
+msgid "Update share percentage"
+msgstr "Mettre à jour le pourcentage des parts"
+
+#. module: associates
+#: model:associates.dashboard,card_description:associates.associates_dashboard_3
+msgid "Update the share percentage held by each associate."
+msgstr "Mettez à jour le pourcentage des parts détenues par chaque associé."
+
+#. module: associates
+#: model:associates.share.type,name:associates.share_type_common
+msgid "Common Shares"
+msgstr "Actions ordinaires"
+
+#. module: associates
+#: model:associates.share.type,description:associates.share_type_common
+#: model:associates.share.type,description:associates.share_type_absa
+msgid ""
+"Common shares: These are the most common shares that grant their holder "
+"voting rights at general meetings and a right to a portion of the profits "
+"distributed in the form of dividends."
+msgstr ""
+"Les actions ordinaires : ce sont les actions les plus courantes, qui "
+"confèrent à leur détenteur des droits de vote lors des assemblées générales "
+"et un droit à une partie des bénéfices distribués sous forme de dividendes."
+
+#. module: associates
+#: model:associates.share.type,name:associates.share_type_preference
+msgid "Preference Shares"
+msgstr "Actions de préférence"
+
+#. module: associates
+#: model:associates.share.type,description:associates.share_type_preference
+msgid ""
+"Preference shares: These shares grant specific rights to their holders, such "
+"as priority rights on dividends or additional voting rights. These shares "
+"are often issued for individual or institutional investors who want to have "
+"increased control over the company."
+msgstr ""
+"Les actions de préférence : ces actions donnent des droits spécifiques à "
+"leurs détenteurs, tels que des droits de priorité sur les dividendes ou des "
+"droits de vote supplémentaires. Ces actions sont souvent émises pour des "
+"investisseurs particuliers ou institutionnels qui souhaitent avoir un "
+"contrôle accru sur l'entreprise."
+
+#. module: associates
+#: model:associates.share.type,name:associates.share_type_priority
+msgid "Priority Shares"
+msgstr "Actions de priorité"
+
+#. module: associates
+#: model:associates.share.type,description:associates.share_type_priority
+msgid ""
+"Priority shares: These shares grant their holders a right to a portion of "
+"the profits distributed in the form of dividends before common shareholders. "
+"However, these shares usually do not have voting rights."
+msgstr ""
+"Les actions de priorité : ces actions donnent à leurs détenteurs un droit à "
+"une partie des bénéfices distribués sous forme de dividendes avant les "
+"actionnaires ordinaires. Toutefois, ces actions n'ont généralement pas de "
+"droit de vote."
+
+#. module: associates
+#: model:associates.share.type,name:associates.share_type_free
+msgid "Free Shares"
+msgstr "Actions gratuites"
+
+#. module: associates
+#: model:associates.share.type,description:associates.share_type_free
+msgid ""
+"Free shares: These are shares that are issued free of charge to existing "
+"shareholders based on the number of shares they already hold. These shares "
+"cannot be sold for a specified period."
+msgstr ""
+"Les actions gratuites : ce sont des actions qui sont émises gratuitement aux "
+"actionnaires existants en fonction du nombre d'actions qu'ils détiennent "
+"déjà. Ces actions ne peuvent être vendues pendant une période déterminée."
+
+#. module: associates
+#: model:associates.share.type,name:associates.share_type_performance
+msgid "Performance Shares"
+msgstr "Actions de performance"
+
+#. module: associates
+#: model:associates.share.type,description:associates.share_type_performance
+msgid ""
+"Performance shares: These shares are tied to the performance of the company "
+"or specific objectives. If the company meets its objectives, the holders of "
+"these shares may receive dividends or see their value increase."
+msgstr ""
+"Les actions de performance : ces actions sont liées à la performance de "
+"l'entreprise ou à des objectifs spécifiques. Si l'entreprise atteint ses "
+"objectifs, les détenteurs de ces actions peuvent recevoir des dividendes ou "
+"voir leur valeur augmenter."
+
+#. module: associates
+#: model:associates.share.type,name:associates.share_type_absa
+msgid "Shares with Warrants (ABSA)"
+msgstr "Actions à bons de souscription d'actions (ABSA)"
+
+#. module: associates
+#: model:associates.legal_form,name:associates.legal_form_sas
+msgid "SAS (Simplified Joint Stock Company)"
+msgstr "SAS (Société par Actions Simplifiée)"
+
+#. module: associates
+#: model:associates.legal_form,name:associates.legal_form_sarl
+msgid "SARL (Limited Liability Company)"
+msgstr "SARL (Société à Responsabilité Limitée)"
+
+#. module: associates
+#: model:associates.legal_form,name:associates.legal_form_sa
+msgid "SA (Public Limited Company)"
+msgstr "SA (Société Anonyme)"
+
+#. module: associates
+#: model:associates.legal_form,name:associates.legal_form_eurl
+msgid "EURL (Sole Proprietorship with Limited Liability)"
+msgstr "EURL (Entreprise Unipersonnelle à Responsabilité Limitée)"
+
+#. module: associates
+#: model:associates.legal_form,name:associates.legal_form_sas_u
+msgid "SASU (Simplified Joint Stock Company with a Sole Shareholder)"
+msgstr "SASU (Société par Actions Simplifiée Unipersonnelle)"
+
+#. module: associates
+#: model:associates.legal_form,name:associates.legal_form_scop
+msgid "SCOP (Cooperative and Participative Company)"
+msgstr "SCOP (Société Coopérative et Participative)"
+
+#. module: associates
+#: model:associates.legal_form,name:associates.legal_form_scic
+msgid "SCIC (Cooperative Company of Collective Interest)"
+msgstr "SCIC (Société Coopérative d'Intérêt Collectif)"
+
+#. module: associates
+#: model:associates.legal_form,name:associates.legal_form_cooperative
+msgid "Cooperative"
+msgstr "Coopérative"
+
+#. module: associates
+#: model:associates.legal_form,name:associates.legal_form_sci
+msgid "SCI (Real Estate Civil Company)"
+msgstr "SCI (Société Civile Immobilière)"
+
+#. module: associates
+#: model:associates.legal_form,name:associates.uk_sole_trader
+msgid "Sole Trader"
+msgstr "Entrepreneur individuel"
+
+#. module: associates
+#: model:associates.legal_form,name:associates.uk_limited_company
+msgid "Limited Company (Ltd)"
+msgstr "Société à responsabilité limitée (Ltd)"
+
+#. module: associates
+#: model:associates.legal_form,name:associates.uk_public_limited_company
+msgid "Public Limited Company (PLC)"
+msgstr "Société anonyme (PLC)"
+
+#. module: associates
+#: model:associates.legal_form,name:associates.uk_llp
+msgid "Limited Liability Partnership (LLP)"
+msgstr "Société en commandite à responsabilité limitée (LLP)"
+
+#. module: associates
+#: model:associates.legal_form,name:associates.uk_partnership
+msgid "Partnership"
+msgstr "Partenariat"
+
+#. module: associates
+#: model:associates.legal_form,name:associates.uk_community_interest_company
+msgid "Community Interest Company (CIC)"
+msgstr "Société d'intérêt communautaire (CIC)"
