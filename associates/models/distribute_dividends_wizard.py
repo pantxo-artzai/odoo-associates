@@ -25,14 +25,18 @@ class DistributeDividendsWizard(models.TransientModel):
                 associate._compute_share_percentage()
 
     def button_distribute(self):
-        associates = self.env['associates.associate'].search([])
+        associates = self.env['associates.associate'].search([('share_type_id', '=', self.share_type_id.id)])
         for associate in associates:
-            dividend_amount = self.dividends_total_amount * associate.share_percentage / 100
+            if self.dividends_type_calcul == 'dividends_total_amount':
+                dividend_amount = self.dividends_total_amount * associate.share_percentage / 100
+            elif self.dividends_type_calcul == 'dividends_amount_by_share':
+                dividend_amount = associate.share_numbers * self.dividends_amount_by_share
+
             self.env['associates.dividend'].create({
                 'associate_id': associate.id,
                 'value': dividend_amount,
                 'total_value': dividend_amount,
-                'number': 1,  # or any other logic for dividend number
                 'company_id': self.env.company.id
             })
         return {'type': 'ir.actions.act_window_close'}
+
