@@ -1,4 +1,6 @@
 from odoo import api, fields, models
+from odoo.exceptions import UserError
+from odoo import _
 
 class DistributeDividendsWizard(models.TransientModel):
     _name = 'distribute.dividends.wizard'
@@ -16,6 +18,8 @@ class DistributeDividendsWizard(models.TransientModel):
 
     share_type_id = fields.Many2one("associates.share.type", string="Share type", required=True)
 
+    custom_code = fields.Text(string='Code de calcul personnalisé', related="share_type_id.custom_code")
+    share_type_description = fields.Text(string='Note', related="share_type_id.description")
 
     @api.onchange('dividends_total_amount')
     def _onchange_dividends_total_amount(self):
@@ -27,10 +31,26 @@ class DistributeDividendsWizard(models.TransientModel):
     def button_distribute(self):
         associates = self.env['associates.associate'].search([('share_type_id', '=', self.share_type_id.id)])
         for associate in associates:
+            # Calculs par défaut
             if self.dividends_type_calcul == 'dividends_total_amount':
                 dividend_amount = self.dividends_total_amount * associate.share_percentage / 100
             elif self.dividends_type_calcul == 'dividends_amount_by_share':
                 dividend_amount = associate.share_numbers * self.dividends_amount_by_share
+
+            # Calculs personnalisés
+            custom_code = associate.share_type_id.custom_code
+            if custom_code:
+                local_variables = {
+                    'associate': associate,
+                    'dividend_amount': dividend_amount,
+                    'dividends_total_amount': self.dividends_total_amount,
+                    'dividends_amount_by_share': self.dividends_amount_by_share,
+                }
+                try:
+                    exec(custom_code, None, local_variables)
+                    dividend_amount = local_variables.get('dividend_amount', dividend_amount)
+                except Exception as e:
+                    raise UserError(_('Erreur dans le code personnalisé : %s') % str(e))
 
             self.env['associates.dividend'].create({
                 'associate_id': associate.id,
@@ -39,4 +59,5 @@ class DistributeDividendsWizard(models.TransientModel):
                 'company_id': self.env.company.id
             })
         return {'type': 'ir.actions.act_window_close'}
+
 
