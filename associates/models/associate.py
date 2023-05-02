@@ -23,6 +23,7 @@ class Associate(models.Model):
     share_count = fields.Integer(string='Nb Shares', compute='_compute_share_count',store=True, tracking=1)
     share_numbers = fields.Integer(string='Shares numbers', compute='_compute_share_count',store=True, tracking=1)
     share_percentage = fields.Float(string="Share percentage", compute="_compute_share_percentage", store=True, tracking=1)
+    usufructuary_share_percentage = fields.Float(string="Usufructury percentage", tracking=1)
     
     dividend_count = fields.Integer(compute='_compute_dividend_count', string='Dividend Count')
 

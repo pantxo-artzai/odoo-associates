@@ -45,6 +45,10 @@ class DistributeDividendsWizard(models.TransientModel):
                     'dividend_amount': dividend_amount,
                     'dividends_total_amount': self.dividends_total_amount,
                     'dividends_amount_by_share': self.dividends_amount_by_share,
+                    'usufructuary_share_percentage': associate.usufructuary_share_percentage,
+                    'bare_ownership_share_percentage': associate.bare_ownership_id.share_percentage,
+                    'bare_ownership_share_numbers': associate.bare_ownership_id.share_numbers,
+
                 }
                 try:
                     exec(custom_code, None, local_variables)
