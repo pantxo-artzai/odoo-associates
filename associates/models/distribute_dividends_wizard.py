@@ -8,18 +8,16 @@ class DistributeDividendsWizard(models.TransientModel):
 
     dividends_total_amount = fields.Float(string='Total Dividends Amount', required=True)
     dividends_amount_by_share = fields.Float(string='Amount by share', required=True)
+    date = fields.Date(string='Date', required=True, default=fields.Date.context_today)
+    custom_code = fields.Text(string='Code de calcul personnalisé', related="share_type_id.custom_code")
+    share_type_description = fields.Text(string='Note', related="share_type_id.description")
+
+    share_type_id = fields.Many2one("associates.share.type", string="Share type", required=True)
+
     dividends_type_calcul = fields.Selection([
         ('dividends_total_amount', 'Total dividends amount calcul'),
         ('dividends_amount_by_share', 'Amount by share calcul'),
         ], string='Type', default='dividends_total_amount', required=True)
-    
-    note = fields.Text(string='Note')
-    date = fields.Date(string='Date', required=True, default=fields.Date.context_today)
-
-    share_type_id = fields.Many2one("associates.share.type", string="Share type", required=True)
-
-    custom_code = fields.Text(string='Code de calcul personnalisé', related="share_type_id.custom_code")
-    share_type_description = fields.Text(string='Note', related="share_type_id.description")
 
     @api.onchange('dividends_total_amount')
     def _onchange_dividends_total_amount(self):
