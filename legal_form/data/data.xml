@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+            <!-- Legal forms in France -->
+        <record id="legal_form_sas" model="legal_form.legal_form">
+            <field name="name">SAS (Simplified Joint Stock Company)</field>
+            <field name="country_id" ref="base.fr"/>
+        </record>
+
+        <record id="legal_form_sarl" model="legal_form.legal_form">
+            <field name="name">SARL (Limited Liability Company)</field>
+            <field name="country_id" ref="base.fr"/>
+        </record>
+
+        <record id="legal_form_sa" model="legal_form.legal_form">
+            <field name="name">SA (Public Limited Company)</field>
+            <field name="country_id" ref="base.fr"/>
+        </record>
+
+        <record id="legal_form_eurl" model="legal_form.legal_form">
+            <field name="name">EURL (Sole Proprietorship with Limited Liability)</field>
+            <field name="country_id" ref="base.fr"/>
+        </record>
+
+        <record id="legal_form_sas_u" model="legal_form.legal_form">
+            <field name="name">SASU (Simplified Joint Stock Company with a Sole Shareholder)</field>
+            <field name="country_id" ref="base.fr"/>
+        </record>
+
+        <record id="legal_form_scop" model="legal_form.legal_form">
+            <field name="name">SCOP (Cooperative and Participative Company)</field>
+            <field name="country_id" ref="base.fr"/>
+        </record>
+
+        <record id="legal_form_scic" model="legal_form.legal_form">
+            <field name="name">SCIC (Cooperative Company of Collective Interest)</field>
+            <field name="country_id" ref="base.fr"/>
+        </record>
+
+        <record id="legal_form_cooperative" model="legal_form.legal_form">
+            <field name="name">Cooperative</field>
+            <field name="country_id" ref="base.fr"/>
+        </record>
+
+        <record id="legal_form_sci" model="legal_form.legal_form">
+            <field name="name">SCI (Real Estate Civil Company)</field>
+            <field name="country_id" ref="base.fr"/>
+        </record>
+
+        <!-- Legal forms for United Kingdom -->
+        <record id="uk_sole_trader" model="legal_form.legal_form">
+            <field name="name">Sole Trader</field>
+            <field name="country_id" ref="base.uk"/>
+        </record>
+
+        <record id="uk_limited_company" model="legal_form.legal_form">
+            <field name="name">Limited Company (Ltd)</field>
+            <field name="country_id" ref="base.uk"/>
+        </record>
+
+        <record id="uk_public_limited_company" model="legal_form.legal_form">
+            <field name="name">Public Limited Company (PLC)</field>
+            <field name="country_id" ref="base.uk"/>
+        </record>
+
+        <record id="uk_llp" model="legal_form.legal_form">
+            <field name="name">Limited Liability Partnership (LLP)</field>
+            <field name="country_id" ref="base.uk"/>
+        </record>
+
+        <record id="uk_partnership" model="legal_form.legal_form">
+            <field name="name">Partnership</field>
+            <field name="country_id" ref="base.uk"/>
+        </record>
+        
+        <record id="uk_community_interest_company" model="legal_form.legal_form">
+            <field name="name">Community Interest Company (CIC)</field>
+            <field name="country_id" ref="base.uk"/>
+        </record>
+        
+    </data>
+</odoo>
