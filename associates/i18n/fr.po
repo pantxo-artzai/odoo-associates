@@ -114,7 +114,7 @@ msgid ""
 "each associate."
 msgstr ""
 "En cliquant sur le bouton Mettre à jour, vous mettrez à jour le pourcentage "
-"de partage détenu par chaque associé."
+"de parts détenu par chaque associé."
 
 #. module: associates
 #: model_terms:ir.ui.view,arch_db:associates.distribute_dividends_wizard_view
@@ -174,14 +174,14 @@ msgstr "Pays"
 #. module: associates
 #: model:ir.actions.act_window,name:associates.action_create_share
 msgid "Create Share"
-msgstr "Créer Partager"
+msgstr "Créer des Parts"
 
 #. module: associates
 #: model:ir.actions.act_window,name:associates.action_create_shares_wizard
 #: model_terms:ir.ui.view,arch_db:associates.view_associate_form
 #: model_terms:ir.ui.view,arch_db:associates.view_create_shares_wizard_form
 msgid "Create Shares"
-msgstr "Créer des partages"
+msgstr "Créer des parts"
 
 #. module: associates
 #: model:ir.actions.act_window,name:associates.action_create_dividends
@@ -191,7 +191,7 @@ msgstr "Créer des dividendes"
 #. module: associates
 #: model:ir.model,name:associates.model_associates_create_shares_wizard
 msgid "Create shares wizard"
-msgstr "Assistant de création de partages"
+msgstr "Assistant de création de parts"
 
 #. module: associates
 #: model:ir.model.fields,field_description:associates.field_associates_associate__create_uid
@@ -530,7 +530,7 @@ msgstr "Nombre de parts"
 #. module: associates
 #: model:ir.model.fields,field_description:associates.field_associates_create_shares_wizard__share_count
 msgid "Number of Shares"
-msgstr "Nombre de partages"
+msgstr "Nombre de parts"
 
 #. module: associates
 #: model:ir.model.fields,field_description:associates.field_associates_associate__message_has_error_counter
@@ -703,7 +703,7 @@ msgstr "Succès"
 #. odoo-python
 #: code:addons/associates/models/wizard_update_percentage.py:0
 msgid "The share percentage has been updated for all associates."
-msgstr "Le pourcentage de partage a été mis à jour pour tous les associés."
+msgstr "Le pourcentage de parts a été mis à jour pour tous les associés."
 
 #. module: associates
 #: model:ir.model.fields,field_description:associates.field_distribute_dividends_wizard__dividends_total_amount
@@ -729,7 +729,7 @@ msgstr "Type"
 #. module: associates
 #: model:ir.model,name:associates.model_associates_update_associate_wizard
 msgid "Upadte associate wizard for share tansfert"
-msgstr "Assistant de mise à jour associé pour le transfert de partage"
+msgstr "Assistant de mise à jour associé pour le transfert de parts"
 
 #. module: associates
 #: model_terms:ir.ui.view,arch_db:associates.view_update_associate_wizard_form
@@ -752,7 +752,7 @@ msgstr "Assistant de mise à jour du pourcentage"
 #: model:ir.actions.act_window,name:associates.action_update_percentage_wizard
 #: model_terms:ir.ui.view,arch_db:associates.view_update_percentage_wizard_form
 msgid "Update Share Percentage"
-msgstr "Mettre à jour le pourcentage de partage"
+msgstr "Mettre à jour le pourcentage de parts"
 
 #. module: associates
 #: model:ir.model.fields,field_description:associates.field_associates_associate__usufructuary_ids
