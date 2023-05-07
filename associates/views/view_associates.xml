@@ -119,9 +119,10 @@
                             </group>
                         </group>
                         <notebook>
+                            <!-- Page Personals informations-->
                             <page string="Personals informations">
                                 <group>
-                                    <group>
+                                    <group string="General informations">
                                         <field name="name" readonly="1"/>
                                         <field name="email" readonly="1"/>
                                         <field name="phone" readonly="1"/>
@@ -131,7 +132,7 @@
                                         <field name="zip" readonly="1"/>
                                         <field name="country_id" readonly="1"/>
                                     </group>
-                                    <group>
+                                    <group string="Others informations">
                                         <field name="birth_date"/>
                                         <field name="birth_country_id"/>
                                         <field name="birth_country_code"/>
@@ -141,6 +142,23 @@
                                     </group>
                                 </group>
                             </page>
+                            <!-- Page Accounting-->
+                            <page string="Accounting">
+                                <group>
+                                    <group string="Bank informations">
+                                        <field name="bank_ids">
+                                            <tree editable="bottom">
+                                                <field name="bank_id"/>
+                                                <field name="acc_number"/>
+                                            </tree>
+                                        </field>
+                                    </group>
+                                    <group string="Accounting setting">
+
+                                    </group>
+                                </group>
+                            </page>
+                            <!-- Page Usufructuaries-->
                             <page string="Usufructuaries" attrs="{'invisible': [('type', '!=', 'bare_ownership')]}">
                                 <field name="usufructuary_ids" nolabel="1">
                                     <tree editable="bottom">

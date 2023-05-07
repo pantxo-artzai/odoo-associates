@@ -48,6 +48,9 @@ class Associate(models.Model):
         "associates.associate", "associate_rel", "main_id", "other_id", string="Usufructuaries",
         domain=[('type', '=', 'usufructuaries')]
         )
+    bank_ids = fields.Many2many(
+        "res.partner.bank", "bank_id", "acc_number", "other_id",
+        )
 
     type = fields.Selection([
         ('full_ownership', 'Full ownership'),
