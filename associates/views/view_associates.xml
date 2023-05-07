@@ -133,6 +133,9 @@
                                     </group>
                                     <group>
                                         <field name="birth_date"/>
+                                        <field name="birth_country_id"/>
+                                        <field name="birth_country_code"/>
+                                        <field name="birth_city" attrs="{'invisible': [('birth_country_code', '!=', 'FR')]}"/>
                                         <field name="gender"/>
                                         <field name="nationality"/>
                                     </group>

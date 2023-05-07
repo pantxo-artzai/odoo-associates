@@ -9,7 +9,6 @@ class Associate(models.Model):
     name = fields.Char(string='Name')
     email = fields.Char(string='Email', related='partner_id.email')
     phone = fields.Char(string='Phone', related='partner_id.phone')
-    birth_date = fields.Date(string='Birthdate')
     nationality = fields.Many2one('res.country', string='Nationality', required=True)
     street = fields.Char(string='street', related='partner_id.street')
     street2 = fields.Char(string='street2', related='partner_id.street2')
@@ -17,6 +16,12 @@ class Associate(models.Model):
     state_id = fields.Many2one(string='state_id', related='partner_id.state_id')
     zip = fields.Char(string='zip', related='partner_id.zip')
     country_id = fields.Many2one(string='Counry', related='partner_id.country_id')
+
+    birth_date = fields.Date(string='Birthdate')
+    birth_country_id = fields.Many2one('res.country', string='Birth country', tracking=1)
+    birth_country_code = fields.Char(related='birth_country_id.code', string='Birth country code')
+    birth_city = fields.Char(string='Birth city')
+    
     notes = fields.Text(string='Notes')
 
     shares_amount = fields.Float(string="Shares total amount", compute="_compute_shares_amount", store=True)
