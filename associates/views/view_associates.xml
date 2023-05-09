@@ -42,6 +42,19 @@
             </field>
         </record>
 
+        <!-- Associates pivot view "associates.associate" -->
+        <record id="view_associate_pivot" model="ir.ui.view">
+            <field name="name">Associate Pivot</field>
+            <field name="model">associates.associate</field>
+            <field name="arch" type="xml">
+                <pivot string="Associate Analysis">
+                    <field name="share_numbers" type="measure"/>
+                    <field name="shares_amount" type="measure"/>
+                    <field name="share_percentage" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
         <!-- Associates graph view "associates.associate" -->
         <record model="ir.ui.view" id="view_associate_graph">
             <field name="name">Associate Graph</field>
