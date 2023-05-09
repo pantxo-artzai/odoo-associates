@@ -6,6 +6,7 @@
             <field name="inherit_id" ref="base.view_company_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='currency_id']" position="after">
+                    <field name="capital_type"/>
                     <field name="capital"/>
                     <field name="legal_form_id" domain="[('country_id', '=', country_id)]"/>
                 </xpath>
