@@ -152,6 +152,9 @@
                                         <field name="birth_city" attrs="{'invisible': [('birth_country_code', '!=', 'FR')]}"/>
                                         <field name="gender"/>
                                         <field name="nationality"/>
+                                        <field name="deceased"/>
+                                        <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+
                                     </group>
                                 </group>
                             </page>

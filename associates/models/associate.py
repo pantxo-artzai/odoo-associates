@@ -1,6 +1,14 @@
 from odoo import models, fields, api
 from odoo.tools.translate import _
 
+class AssociateTag(models.Model):
+    _name = 'associates.tag'
+    _description = 'Associate Tag'
+
+    name = fields.Char(string='Name', required=True)
+    color = fields.Integer(string='Color Index')
+
+
 class Associate(models.Model):
     _name = 'associates.associate'
     _inherit = 'mail.thread'
@@ -21,6 +29,8 @@ class Associate(models.Model):
     birth_country_id = fields.Many2one('res.country', string='Birth country', tracking=1)
     birth_country_code = fields.Char(related='birth_country_id.code', string='Birth country code')
     birth_city = fields.Char(string='Birth city')
+    deceased = fields.Boolean(string='Deceased')
+    tag_ids = fields.Many2many('associates.tag', string='Tags')
     
     notes = fields.Text(string='Notes')
 
@@ -189,4 +199,3 @@ class Associate(models.Model):
     def _compute_dividend_count(self):
         for associate in self:
             associate.dividend_count = len(associate.dividend_ids)
-
