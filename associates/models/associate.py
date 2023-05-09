@@ -39,7 +39,9 @@ class Associate(models.Model):
     company_id = fields.Many2one("res.company", string="Company", required=True, default=lambda self: self.env.company, tracking=1)
     share_type_id = fields.Many2one('associates.share.type', string='Default share type', required=True, tracking=1)
     bare_ownership_id = fields.Many2one('associates.associate', string='Bare Ownership', readonly=True)
-    dividend_ids = fields.One2many('associates.dividend', 'associate_id', string='Dividends')
+
+    dividend_ids = fields.One2many(
+        'associates.dividend', 'associate_id', string='Dividends')
 
     share_ids = fields.One2many(
         'associates.share', 'associate_id', string='Shares', tracking=1
