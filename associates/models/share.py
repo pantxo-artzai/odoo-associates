@@ -16,7 +16,7 @@ class Share(models.Model):
 
     contribution_type = fields.Selection([
         ('monetary_contributions', 'Monetary contributions'),
-        ('monetary_contributions', 'Monetary contributions'),
+        ('non_cash_contributions', 'Non-cash contributions'),
         ], string='Contribution type')
 
     @api.model_create_multi
