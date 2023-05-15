@@ -81,6 +81,13 @@
             <field name="view_mode">tree,form</field>
         </record>
 
+        <!-- Action associated with the "Operations" smart button -->
+        <record id="action_view_operations" model="ir.actions.act_window">
+            <field name="name">Opertaions</field>
+            <field name="res_model">associates.operation</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
         <!-- Associates form view "associates.associate" -->
         <record model="ir.ui.view" id="view_associate_form">
             <field name="name">Associate Form</field>
@@ -112,6 +119,13 @@
                                     class="oe_stat_button"
                                     context="{'default_associate_id': active_id}">
                                 <field name="dividend_count" string="Dividends" widget="statinfo"/>
+                            </button>
+                            <button type="action"
+                                    name="%(action_view_operations)d"
+                                    string="Operations"
+                                    icon="fa-list"
+                                    class="oe_stat_button"
+                                    context="{'default_associate_id': active_id}">
                             </button>
                         </div>
                         <group>

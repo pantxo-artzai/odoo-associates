@@ -16,6 +16,12 @@ class CreateSharesWizard(models.TransientModel):
         ('non_cash_contributions', 'Non-cash contributions'),
         ], string='Contribution type')
 
+    type = fields.Selection([
+        ('subscription', 'Subscription'),
+        ('other', 'Other'),
+        # add more types as needed
+    ], string='Type', required=True)
+
     def create_shares(self):
         # Créer les parts pour l'associé
         for _ in range(self.share_count):
@@ -25,5 +31,15 @@ class CreateSharesWizard(models.TransientModel):
                 "subscription_date": self.subscription_date,
                 "contribution_type": self.contribution_type,
             })
+
+        # Créer une opération
+        self.env["associates.operation"].create({
+            "associate_id": self.associate_id.id,
+            "number_of_shares": self.share_count,
+            "date": self.subscription_date,
+            "type": self.type,
+            "amount": self.share_count * self.share_value,
+            "contribution_type": self.contribution_type,
+        })
 
         return {"type": "ir.actions.act_window_close"}

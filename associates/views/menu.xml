@@ -39,6 +39,22 @@
             <field name="sequence">20</field>
         </record>
 
+        <!-- /// Operations /// -->
+        <!-- Action associée au menu "Operations" -->
+        <record id="action_operation" model="ir.actions.act_window">
+            <field name="name">Operations</field>
+            <field name="res_model">associates.operation</field>
+            <field name="view_mode">tree,form,graph</field>
+        </record>
+
+        <!-- Menu "Operations" -->
+        <record id="menu_operation" model="ir.ui.menu">
+            <field name="name">Operations</field>
+            <field name="parent_id" ref="menu_associates_management"/>
+            <field name="action" ref="action_operation" />
+            <field name="sequence">30</field>
+        </record>
+
         <!-- /// Dividends /// -->
         <!-- Action associée au menu "dividends" -->
         <record id="action_dividends_form" model="ir.actions.act_window">

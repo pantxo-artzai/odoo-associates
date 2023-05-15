@@ -28,6 +28,7 @@
         'views/view_dashboard.xml',
         'views/view_associates.xml',
         'views/view_dividends.xml',
+        'views/view_operations.xml',
         'report/report_associate_list_qweb.xml',
         'report/report_view.xml',
         'data/data.xml',
