@@ -14,6 +14,11 @@ class Share(models.Model):
     subscription_date = fields.Date(string='Subscription Date')
     share_type_id = fields.Many2one(string="Share Type", related="associate_id.share_type_id", readonly=True, store=True)
 
+    contribution_type = fields.Selection([
+        ('monetary_contributions', 'Monetary contributions'),
+        ('monetary_contributions', 'Monetary contributions'),
+        ], string='Contribution type')
+
     @api.model_create_multi
 
     def create(self, vals_list):
