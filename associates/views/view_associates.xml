@@ -126,6 +126,7 @@
                                     icon="fa-list"
                                     class="oe_stat_button"
                                     context="{'default_associate_id': active_id}">
+                                <field name="operation_count" string="Operations" widget="statinfo"/>
                             </button>
                         </div>
                         <group>

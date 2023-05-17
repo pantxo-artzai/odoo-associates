@@ -41,6 +41,7 @@ class Associate(models.Model):
     usufructuary_share_percentage = fields.Float(string="Usufructury percentage", tracking=1)
     
     dividend_count = fields.Integer(compute='_compute_dividend_count', string='Dividend Count')
+    operation_count = fields.Integer(compute='_compute_operation_count', string='Operation Count')
 
     membership_start_date = fields.Date(string='Start date', tracking=1)
     membership_end_date = fields.Date(string='End date', tracking=1)
@@ -51,10 +52,13 @@ class Associate(models.Model):
     bare_ownership_id = fields.Many2one('associates.associate', string='Bare Ownership', readonly=True)
 
     dividend_ids = fields.One2many(
-        'associates.dividend', 'associate_id', string='Dividends')
-
+        'associates.dividend', 'associate_id', string='Dividends'
+        )
     share_ids = fields.One2many(
         'associates.share', 'associate_id', string='Shares', tracking=1
+        )
+    operation_ids = fields.One2many(
+        'associates.operation', 'associate_id', string='Operations', tracking=1
         )
     usufructuary_ids = fields.Many2many(
         "associates.associate", "associate_rel", "main_id", "other_id", string="Usufructuaries",
@@ -199,3 +203,8 @@ class Associate(models.Model):
     def _compute_dividend_count(self):
         for associate in self:
             associate.dividend_count = len(associate.dividend_ids)
+
+    @api.depends('operation_ids')
+    def _compute_operation_count(self):
+        for associate in self:
+            associate.operation_count = len(associate.operation_ids)
