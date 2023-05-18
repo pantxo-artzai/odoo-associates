@@ -10,3 +10,9 @@ class Dashboard(models.Model):
     button_title =  fields.Char(string='Button Title', translate=True)
     button_action = fields.Many2one('ir.actions.actions', string='Button Action')
 
+    category = fields.Selection([
+    ('associates', 'Associates'),
+    ('shares', 'Shares'),
+    ('capital', 'Capital'),
+    ], string='Category')
+

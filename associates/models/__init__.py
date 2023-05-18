@@ -4,8 +4,8 @@ from . import associate
 from . import dashboard
 from . import dividend
 from . import share
-from . import create_shares_wizard
-from . import update_associate_wizard
-from . import distribute_dividends_wizard
-from . import wizard_update_percentage
 from . import operation
+from . import wizard_create_shares
+from . import wizard_update_associate
+from . import wizard_distribute_dividends
+from . import wizard_update_percentage
