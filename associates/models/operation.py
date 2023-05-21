@@ -17,5 +17,5 @@ class AssociateOperation(models.Model):
         ('monetary_contributions', 'Monetary contributions'),
         ('non_cash_contributions', 'Non-cash contributions'),
     ], string='Contribution type', required=True)
-    company_id = fields.Many2one("res.company", string="Related Company", required=True, default=lambda self: self.env.company, tracking=1)
+    company_id = fields.Many2one("res.company", string="Related Company", required=True, default=lambda self: self.env.company)
 
