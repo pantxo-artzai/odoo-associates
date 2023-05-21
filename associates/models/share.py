@@ -59,5 +59,7 @@ class ShareType(models.Model):
     vote_agm = fields.Boolean(string="Vote at the Annual General Meeting (AGM)")
     vote_egm = fields.Boolean(string="Vote at the Extraordinary General Meeting (EGM)")
     custom_code = fields.Text(string='Code de calcul personnalisé', help="Entrez le code Python personnalisé pour le calcul des dividendes.")
+    company_id = fields.Many2one(comodel_name='res.company', string='Company', default=lambda self: self.env.company)
+
 
 
