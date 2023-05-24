@@ -30,7 +30,6 @@
             <field name="res_model">associates.associate</field>
             <field name="view_mode">tree,kanban,form,graph,pivot</field>
             <field name="domain">[('company_id', 'in', context.get('allowed_company_ids', []))]</field>
-
         </record>
         
         <!-- Menu "Associates" -->
@@ -112,7 +111,6 @@
             <field name="name">Shares type</field>
             <field name="res_model">associates.share.type</field>
             <field name="view_mode">tree,form</field>
-            <field name="domain">[('company_id', 'in', context.get('allowed_company_ids', []))]</field>
         </record>
 
         <!-- Menu "Shares type" -->
