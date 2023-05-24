@@ -143,7 +143,6 @@
                             <group string="Shares">
                                 <field name="bare_ownership_id" attrs="{'invisible': [('type', '!=', 'usufructuaries')]}"/>
                                 <field name="usufructuary_share_percentage" attrs="{'invisible': [('type', '!=', 'usufructuaries')]}"/>
-                                <field name="share_type_id"/>
                                 <field name="share_numbers" readonly="1" attrs="{'invisible': [('type', '==', 'usufructuaries')]}"/> 
                                 <field name="share_percentage" readonly="1" attrs="{'invisible': [('type', '==', 'usufructuaries')]}"/>
                                 <field name="shares_amount" readonly="1" attrs="{'invisible': [('type', '==', 'usufructuaries')]}"/>
