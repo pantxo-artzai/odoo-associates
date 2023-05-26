@@ -10,6 +10,7 @@ class CreateSharesWizard(models.TransientModel):
     share_count = fields.Integer(string="Number of Shares", required=True)
     share_value = fields.Float(string="Share Value", required=True)
     subscription_date = fields.Date(string="Subscription Date")
+    company_id = fields.Many2one("res.company", string="Company", required=True)
 
     contribution_type = fields.Selection([
         ('monetary_contributions', 'Monetary contributions'),
@@ -31,6 +32,7 @@ class CreateSharesWizard(models.TransientModel):
                 "subscription_date": self.subscription_date,
                 "contribution_type": self.contribution_type,
                 "share_type_id": self.share_type_id.id,
+                "company_id": self.company_id.id,
             })
 
         # Créer une opération

@@ -34,11 +34,12 @@ class Associate(models.Model):
     
     notes = fields.Text(string='Notes')
 
-    shares_amount = fields.Float(string="Shares total amount", compute="_compute_shares_amount", store=True)
-    share_count = fields.Integer(string='Nb Shares', compute='_compute_share_count',store=True, tracking=1)
-    share_numbers = fields.Integer(string='Shares numbers', compute='_compute_share_count',store=True, tracking=1)
-    share_percentage = fields.Float(string="Share percentage", compute="_compute_share_percentage", store=True, tracking=1)
-    usufructuary_share_percentage = fields.Float(string="Usufructury percentage", tracking=1)
+    # shares_amount = fields.Float(string="Shares total amount", compute="_compute_shares_amount", store=True)
+    # share_count = fields.Integer(string='Nb Shares', compute='_compute_share_count',store=True, tracking=1)
+    # share_numbers = fields.Integer(string='Shares numbers', compute='_compute_share_count',store=True, tracking=1)
+    # share_percentage = fields.Float(string="Share percentage", compute="_compute_share_percentage", store=True, tracking=1)
+
+    # usufructuary_share_percentage = fields.Float(string="Usufructury percentage", tracking=1)
     
     dividend_count = fields.Integer(compute='_compute_dividend_count', string='Dividend Count')
     operation_count = fields.Integer(compute='_compute_operation_count', string='Operation Count')
@@ -47,7 +48,7 @@ class Associate(models.Model):
     membership_end_date = fields.Date(string='End date', tracking=1)
 
     partner_id = fields.Many2one('res.partner', string='Related Contact', required=True, tracking=1)
-    company_id = fields.Many2one("res.company", string="Related Company", required=True, default=lambda self: self.env.company, tracking=1)
+    company_id = fields.Many2many("res.company", string="Related Company", required=True, tracking=1)
     bare_ownership_id = fields.Many2one('associates.associate', string='Bare Ownership', readonly=True)
 
     dividend_ids = fields.One2many(
@@ -132,26 +133,10 @@ class Associate(models.Model):
 
         return res
 
-    def update_all_associates_percentage(self):
-        associates = self.search([])
-        for associate in associates:
-            total_shares = self.env["associates.share"].search_count([('company_id', '=', associate.company_id.id)])
-            associate_shares = len(associate.share_ids)
-            if total_shares > 0:
-                associate.share_percentage = (associate_shares / total_shares) * 100
-            else:
-                associate.share_percentage = 0.0
-
     @api.onchange('partner_id')
     def _onchange_partner_id(self):
         if self.partner_id:
             self.name = self.partner_id.name
-
-    @api.depends('share_ids')
-    def _compute_share_count(self):
-        for associate in self:
-            associate.share_count = len(associate.share_ids)
-            associate.share_numbers = len(associate.share_ids)
 
     def action_view_shares(self):
         action = self.env.ref('associates.action_view_share').read()[0]
@@ -181,29 +166,3 @@ class Associate(models.Model):
     def action_new(self):
         for record in self:
             record.state = 'new'
-    
-    @api.depends("share_ids", "company_id")
-    def _compute_share_percentage(self):
-        for associate in self:
-            total_shares = self.env["associates.share"].search_count([('company_id', '=', associate.company_id.id)])
-            associate_shares = len(associate.share_ids)
-            if total_shares > 0:
-                associate.share_percentage = (associate_shares / total_shares) * 100
-            else:
-                associate.share_percentage = 0.0
-
-    @api.depends("share_ids", "share_ids.value")
-    def _compute_shares_amount(self):
-        for associate in self:
-            shares_amount = sum(share.value for share in associate.share_ids)
-            associate.shares_amount = shares_amount
-
-    @api.depends('dividend_ids')
-    def _compute_dividend_count(self):
-        for associate in self:
-            associate.dividend_count = len(associate.dividend_ids)
-
-    @api.depends('operation_ids')
-    def _compute_operation_count(self):
-        for associate in self:
-            associate.operation_count = len(associate.operation_ids)

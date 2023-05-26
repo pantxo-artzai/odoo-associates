@@ -7,10 +7,8 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
-                    <field name="company_id"/>
+                    <field name="company_id" widget="many2many_tags"/>
                     <field name="type"/>
-                    <field name="share_numbers"/>
-                    <field name="share_percentage"/>
                 </tree>
             </field>
         </record>
@@ -50,9 +48,6 @@
             <field name="model">associates.associate</field>
             <field name="arch" type="xml">
                 <pivot string="Associate Analysis">
-                    <field name="share_numbers" type="measure"/>
-                    <field name="shares_amount" type="measure"/>
-                    <field name="share_percentage" type="measure"/>
                 </pivot>
             </field>
         </record>
@@ -64,7 +59,6 @@
             <field name="arch" type="xml">
                 <graph string="Associates" type="pie">
                     <field name="name" type="row"/>
-                    <field name="share_count" type="measure"/>
                 </graph>
             </field>
         </record>
@@ -112,7 +106,6 @@
                                 icon="fa-pie-chart" 
                                 class="oe_stat_button" 
                                 context="{'default_associate_id': active_id}">
-                                <field name="share_count" string="Shares" widget="statinfo"/>
                             </button>
                             <button type="action"
                                     name="%(action_view_dividends)d"
@@ -120,7 +113,6 @@
                                     icon="fa-money"
                                     class="oe_stat_button"
                                     context="{'default_associate_id': active_id}">
-                                <field name="dividend_count" string="Dividends" widget="statinfo"/>
                             </button>
                             <button type="action"
                                     name="%(action_view_operations)d"
@@ -128,24 +120,19 @@
                                     icon="fa-list"
                                     class="oe_stat_button"
                                     context="{'default_associate_id': active_id}">
-                                <field name="operation_count" string="Operations" widget="statinfo"/>
                             </button>
                         </div>
                         <group>
-                            <group string="Associate">
+                            <group>
                                 <field name="partner_id"/>
-                                <field name="company_id"/>
+                                <field name="company_id" widget="many2many_tags"/>
                                 <field name="type"/>
+                                <field name="bare_ownership_id" attrs="{'invisible': [('type', '!=', 'usufructuaries')]}"/>
+                            </group>
+                            <group>
                                 <field name="membership_start_date"/>
                                 <field name="membership_end_date"/>
                                 <field name="notes" widget="text"/>
-                            </group>
-                            <group string="Shares">
-                                <field name="bare_ownership_id" attrs="{'invisible': [('type', '!=', 'usufructuaries')]}"/>
-                                <field name="usufructuary_share_percentage" attrs="{'invisible': [('type', '!=', 'usufructuaries')]}"/>
-                                <field name="share_numbers" readonly="1" attrs="{'invisible': [('type', '==', 'usufructuaries')]}"/> 
-                                <field name="share_percentage" readonly="1" attrs="{'invisible': [('type', '==', 'usufructuaries')]}"/>
-                                <field name="shares_amount" readonly="1" attrs="{'invisible': [('type', '==', 'usufructuaries')]}"/>
                             </group>
                         </group>
                         <notebook>
@@ -196,7 +183,7 @@
                                 <field name="usufructuary_ids" nolabel="1">
                                     <tree editable="bottom">
                                     <field name="name"/>
-                                    <field name="usufructuary_share_percentage"/>
+                                    <!-- <field name="usufructuary_share_percentage"/> -->
                                     </tree>
                                 </field>
                             </page>

@@ -22,7 +22,7 @@
         'views/wizard_create_shares_.xml',
         'views/wizard_distribute_dividends.xml',
         'views/wizard_update_associate.xml',
-        'views/wizard_update_percentage.xml',   'views/view_shares.xml',
+        'views/view_shares.xml',
         'views/view_shares_type.xml',
         'views/view_dashboard.xml',
         'views/view_associates.xml',

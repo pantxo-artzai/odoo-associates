@@ -8,4 +8,3 @@ from . import associate
 from . import wizard_create_shares
 from . import wizard_update_associate
 from . import wizard_distribute_dividends
-from . import wizard_update_percentage
