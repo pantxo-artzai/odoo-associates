@@ -8,7 +8,6 @@ class AssociateTag(models.Model):
     name = fields.Char(string='Name', required=True)
     color = fields.Integer(string='Color Index')
 
-
 class Associate(models.Model):
     _name = 'associates.associate'
     _inherit = 'mail.thread'
@@ -33,14 +32,7 @@ class Associate(models.Model):
     tag_ids = fields.Many2many('associates.tag', string='Tags')
     
     notes = fields.Text(string='Notes')
-
-    # shares_amount = fields.Float(string="Shares total amount", compute="_compute_shares_amount", store=True)
-    # share_count = fields.Integer(string='Nb Shares', compute='_compute_share_count',store=True, tracking=1)
-    # share_numbers = fields.Integer(string='Shares numbers', compute='_compute_share_count',store=True, tracking=1)
-    # share_percentage = fields.Float(string="Share percentage", compute="_compute_share_percentage", store=True, tracking=1)
-
-    # usufructuary_share_percentage = fields.Float(string="Usufructury percentage", tracking=1)
-    
+  
     dividend_count = fields.Integer(compute='_compute_dividend_count', string='Dividend Count')
     operation_count = fields.Integer(compute='_compute_operation_count', string='Operation Count')
 
