@@ -10,6 +10,7 @@ class Share(models.Model):
     sequence = fields.Char(string='Share Reference', required=True, copy=False, readonly=True, default=lambda self: _('New'))
     value = fields.Float(string='Share Value')
     subscription_date = fields.Date(string='Subscription Date')
+    display_usufructuarie_id = fields.Boolean(string='Display Usufructuary', default=False)
 
     associate_id = fields.Many2one(comodel_name='associates.associate', string='Bare ownership', required=True, tracking=1)
     usufructuarie_id = fields.Many2one(comodel_name='associates.associate', string='Usufructuary', domain=[])
@@ -21,15 +22,16 @@ class Share(models.Model):
         ('non_cash_contributions', 'Non-cash contributions'),
         ], string='Contribution type')
 
-    @api.onchange('associate_id')
-    def _onchange_associate_id(self):
-        if self.associate_id:
-            return {'domain': {'usufructuarie_id': [('id', 'in', self.associate_id.usufructuary_ids.ids)]}}
-        else:
-            return {'domain': {'usufructuarie_id': [('type', '=', 'usufructuaries')]}}
+   # onchange method for 'associate_id' and 'display_usufructuarie_id' fields
+    @api.onchange('associate_id', 'display_usufructuarie_id')
+    def _onchange_fields(self):
+        if self.display_usufructuarie_id or self.associate_id:
+            if self.associate_id:
+                return {'domain': {'usufructuarie_id': [('id', 'in', self.associate_id.usufructuary_ids.ids)]}}
+            else:
+                return {'domain': {'usufructuarie_id': [('type', '=', 'usufructuaries')]}}
 
     @api.model_create_multi
-
     def create(self, vals_list):
         for vals in vals_list:
             if vals.get('sequence', _('New')) == _('New'):
@@ -55,12 +57,6 @@ class Share(models.Model):
             "target": "new",
             "context": {"share_ids": self.ids},
         }
-
-    def _get_usufructuarie_domain(self):
-        res = [('type', '=', 'usufructuaries')]
-        if self.associate_id:
-            res.append(('id', 'in', self.associate_id.usufructuarie_ids.ids))
-        return res
 
 
 class ShareType(models.Model):
