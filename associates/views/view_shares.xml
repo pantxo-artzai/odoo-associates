@@ -31,7 +31,8 @@
                             <field name="value"/>
                             <field name="subscription_date"/>
                             <field name="associate_id"/>
-                            <field name="usufructuarie_id"/>
+                            <field name="display_usufructuarie_id"/>
+                            <field name="usufructuarie_id" attrs="{'invisible': [('display_usufructuarie_id', '=', False)]}"/>
                             <field name="share_type_id"/>
                             <field name="contribution_type"/>
                         </group>
