@@ -8,16 +8,25 @@ class Share(models.Model):
 
     display_name = fields.Char(string='Share', compute='_compute_display_name')
     sequence = fields.Char(string='Share Reference', required=True, copy=False, readonly=True, default=lambda self: _('New'))
-    associate_id = fields.Many2one(comodel_name='associates.associate', string='Associate', required=True, tracking=1)
     value = fields.Float(string='Share Value')
-    company_id = fields.Many2one(comodel_name='res.company', string='Company', default=lambda self: self.env.company)
     subscription_date = fields.Date(string='Subscription Date')
+
+    associate_id = fields.Many2one(comodel_name='associates.associate', string='Bare ownership', required=True, tracking=1)
+    usufructuarie_id = fields.Many2one(comodel_name='associates.associate', string='Usufructuary', domain=[])
+    company_id = fields.Many2one(comodel_name='res.company', string='Company', default=lambda self: self.env.company)
     share_type_id = fields.Many2one("associates.share.type", string="Share type")
 
     contribution_type = fields.Selection([
         ('monetary_contributions', 'Monetary contributions'),
         ('non_cash_contributions', 'Non-cash contributions'),
         ], string='Contribution type')
+
+    @api.onchange('associate_id')
+    def _onchange_associate_id(self):
+        if self.associate_id:
+            return {'domain': {'usufructuarie_id': [('id', 'in', self.associate_id.usufructuary_ids.ids)]}}
+        else:
+            return {'domain': {'usufructuarie_id': [('type', '=', 'usufructuaries')]}}
 
     @api.model_create_multi
 
@@ -46,6 +55,13 @@ class Share(models.Model):
             "target": "new",
             "context": {"share_ids": self.ids},
         }
+
+    def _get_usufructuarie_domain(self):
+        res = [('type', '=', 'usufructuaries')]
+        if self.associate_id:
+            res.append(('id', 'in', self.associate_id.usufructuarie_ids.ids))
+        return res
+
 
 class ShareType(models.Model):
     _name = 'associates.share.type'

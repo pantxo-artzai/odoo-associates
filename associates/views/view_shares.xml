@@ -8,6 +8,7 @@
                 <tree>
                     <field name="display_name"/>                
                     <field name="associate_id"/>
+                    <field name="usufructuarie_id"/>
                     <field name="share_type_id"/>
                     <field name="contribution_type"/>
                     <field name="subscription_date"/>
@@ -30,6 +31,7 @@
                             <field name="value"/>
                             <field name="subscription_date"/>
                             <field name="associate_id"/>
+                            <field name="usufructuarie_id"/>
                             <field name="share_type_id"/>
                             <field name="contribution_type"/>
                         </group>
