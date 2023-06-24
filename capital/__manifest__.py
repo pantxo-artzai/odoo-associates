@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Legal form",
+    'name': "Capital",
     'summary': """
-        Legal form in company's information.""",
+        Capital form in company's and partenrs information.""",
     'description': """
-        Add a new field in the company's information section for legal forms. You can find your legal form classified by country and add a custom one.""",
+        Add a new field in the company's and partner information.""",
     'author': "Franck Patissier",
     'website': "",
     'category': 'Technical',
@@ -15,7 +15,6 @@
         'security/ir.model.access.csv',
         'views/company_extension_view.xml',
         'views/partner_extension_view.xml',
-        'data/data.xml',
     ],
     'demo': [
         'demo/demo.xml',
