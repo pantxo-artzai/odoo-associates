@@ -1,4 +1,16 @@
-# Associates Management Module for Odoo V16
+# Associates Management Modules for Odoo V16
+
+This repository contains three separate Odoo modules:
+
+- `Associates`: This module allows the management of associates, shares, and operations around the capital management of a company.
+
+- `Legal Form`: This module adds a field in the partner and company view to specify the legal form of the company. The module comes with numerous pre-registered legal forms per country.
+
+- `Capital`: This module adds a field in the partner and company view to specify the form and amount of the company's capital.
+
+While the modules are independent of each other, the functionality of the `Associates` module is enhanced when used in conjunction with the other modules.
+
+# Associates Management Module
 
 This module is compatible with Odoo V16 Community and Enterprise editions. It provides an easy and efficient way to manage associates and their shares in a company. The main features of the module include:
 

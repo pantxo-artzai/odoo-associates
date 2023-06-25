@@ -15,7 +15,7 @@
         'security/ir.model.access.csv',
         'views/company_extension_view.xml',
         'views/partner_extension_view.xml',
-        'data/data.xml',
+        'data/legal_form.legal_form.csv',
     ],
     'demo': [
         'demo/demo.xml',
